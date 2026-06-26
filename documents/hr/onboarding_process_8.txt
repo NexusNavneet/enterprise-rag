@@ -1,0 +1,61 @@
+
+ENTERPRISE DOCUMENT
+===================
+Category: HR
+Topic: Onboarding Process
+Document ID: DOC-HR-125
+Version: 1.4
+Last Updated: 2024-10-23
+
+1. PURPOSE
+----------
+This document outlines the onboarding process guidelines for all employees 
+and stakeholders of the organization. Compliance with this policy 
+is mandatory for all staff members.
+
+2. SCOPE
+--------
+This policy applies to all full-time employees, part-time staff, 
+contractors, and third-party vendors who interact with company 
+systems and resources related to onboarding process.
+
+3. POLICY DETAILS
+-----------------
+3.1 All employees must adhere to the onboarding process standards as defined 
+    in this document. Violations may result in disciplinary action.
+
+3.2 The hr department is responsible for maintaining and 
+    updating this policy annually or when significant changes occur.
+
+3.3 Employees must complete mandatory training related to onboarding process 
+    within 30 days of joining and annually thereafter.
+
+4. PROCEDURES
+-------------
+Step 1: Review the onboarding process requirements thoroughly.
+Step 2: Complete the acknowledgment form available on the HR portal.
+Step 3: Attend the mandatory orientation session.
+Step 4: Report any violations to your immediate supervisor or the 
+        hr department directly.
+
+5. RESPONSIBILITIES
+-------------------
+- Employees: Follow all guidelines outlined in this document
+- Managers: Ensure team compliance and report violations
+- HR Department: Maintain and enforce this policy
+- HR: Track compliance and maintain records
+
+6. COMPLIANCE AND PENALTIES
+----------------------------
+Non-compliance with this onboarding process policy may result in:
+- Verbal or written warning (first offense)
+- Suspension without pay (second offense)
+- Termination of employment (repeated violations)
+
+7. CONTACT INFORMATION
+-----------------------
+For questions regarding this policy, contact:
+Email: hr@company.com
+Phone: +1-800-915-6777
+
+END OF DOCUMENT

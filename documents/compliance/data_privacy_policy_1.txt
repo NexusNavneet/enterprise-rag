@@ -1,0 +1,61 @@
+
+ENTERPRISE DOCUMENT
+===================
+Category: COMPLIANCE
+Topic: Data Privacy Policy
+Document ID: DOC-COMPLIANCE-274
+Version: 1.4
+Last Updated: 2024-06-07
+
+1. PURPOSE
+----------
+This document outlines the data privacy policy guidelines for all employees 
+and stakeholders of the organization. Compliance with this policy 
+is mandatory for all staff members.
+
+2. SCOPE
+--------
+This policy applies to all full-time employees, part-time staff, 
+contractors, and third-party vendors who interact with company 
+systems and resources related to data privacy policy.
+
+3. POLICY DETAILS
+-----------------
+3.1 All employees must adhere to the data privacy policy standards as defined 
+    in this document. Violations may result in disciplinary action.
+
+3.2 The compliance department is responsible for maintaining and 
+    updating this policy annually or when significant changes occur.
+
+3.3 Employees must complete mandatory training related to data privacy policy 
+    within 30 days of joining and annually thereafter.
+
+4. PROCEDURES
+-------------
+Step 1: Review the data privacy policy requirements thoroughly.
+Step 2: Complete the acknowledgment form available on the HR portal.
+Step 3: Attend the mandatory orientation session.
+Step 4: Report any violations to your immediate supervisor or the 
+        compliance department directly.
+
+5. RESPONSIBILITIES
+-------------------
+- Employees: Follow all guidelines outlined in this document
+- Managers: Ensure team compliance and report violations
+- COMPLIANCE Department: Maintain and enforce this policy
+- HR: Track compliance and maintain records
+
+6. COMPLIANCE AND PENALTIES
+----------------------------
+Non-compliance with this data privacy policy policy may result in:
+- Verbal or written warning (first offense)
+- Suspension without pay (second offense)
+- Termination of employment (repeated violations)
+
+7. CONTACT INFORMATION
+-----------------------
+For questions regarding this policy, contact:
+Email: compliance@company.com
+Phone: +1-800-649-5042
+
+END OF DOCUMENT
