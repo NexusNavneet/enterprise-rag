@@ -1,0 +1,13 @@
+langchain
+langchain-google-genai
+langchain-chroma
+langchain-huggingface
+langchain-community
+langchain-core
+langchain-text-splitters
+google-generativeai
+python-dotenv
+streamlit
+chromadb
+sentence-transformers
+tiktoken

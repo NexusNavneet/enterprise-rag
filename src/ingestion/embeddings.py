@@ -2,82 +2,109 @@ import os
 import sys
 import time
 
+
 # This allows importing from parent folders
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from dotenv import load_dotenv
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+# from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_chroma import Chroma
 from ingestion.document_loader import load_documents
 from ingestion.chunker import chunk_documents
+from langchain_huggingface import HuggingFaceEmbeddings
 
 load_dotenv()
 
-import time
-
+# import time
 def create_vector_store(chunks):
-    print("⏳ Creating embeddings — this will take 30-40 minutes due to free tier limits...")
+    print("⏳ Creating embeddings — this will take 2-3 minutes...")
     
-    embedding_model = GoogleGenerativeAIEmbeddings(
-        model="models/gemini-embedding-001",
-        google_api_key=os.getenv("GOOGLE_API_KEY")
+    embedding_model = HuggingFaceEmbeddings(
+        model_name="all-MiniLM-L6-v2"
     )
     
-    batch_size = 50
-    vector_store = None
+    # No batching needed — local model has no rate limits
+    vector_store = Chroma.from_documents(
+        documents=chunks,
+        embedding=embedding_model,
+        persist_directory=".chroma"
+    )
     
-    for i in range(0, len(chunks), batch_size):
-        batch = chunks[i:i + batch_size]
+    print(f"✅ Vector store created with {vector_store._collection.count()} chunks")
+    print("💾 Saved to .chroma folder!")
+    
+    return vector_store
+# def create_vector_store(chunks):
+#     print("⏳ Creating embeddings — this will take 30-40 minutes due to free tier limits...")
+    
+#     # embedding_model = GoogleGenerativeAIEmbeddings(
+#     #     model="models/gemini-embedding-001",
+#     #     google_api_key=os.getenv("GOOGLE_API_KEY")
+#     # )
+
+#     embedding_model = HuggingFaceEmbeddings(
+#         model_name="all-MiniLM-L6-v2"
+#         )
+    
+#     batch_size = 50
+#     vector_store = None
+    
+#     for i in range(0, len(chunks), batch_size):
+#         batch = chunks[i:i + batch_size]
         
-        # Retry logic — try up to 3 times if rate limited
-        for attempt in range(3):
-            try:
-                if vector_store is None:
-                    vector_store = Chroma.from_documents(
-                        documents=batch,
-                        embedding=embedding_model,
-                        persist_directory=".chroma"
-                    )
-                else:
-                    vector_store.add_documents(batch)
-                break  # Success — exit retry loop
+#         # Retry logic — try up to 3 times if rate limited
+#         for attempt in range(3):
+#             try:
+#                 if vector_store is None:
+#                     vector_store = Chroma.from_documents(
+#                         documents=batch,
+#                         embedding=embedding_model,
+#                         persist_directory=".chroma"
+#                     )
+#                 else:
+#                     vector_store.add_documents(batch)
+#                 break  # Success — exit retry loop
                 
-            except Exception as e:
-                if "429" in str(e) and attempt < 2:
-                    print(f"⏳ Rate limited — waiting 65 seconds...")
-                    time.sleep(65)
-                else:
-                    raise e
+#             except Exception as e:
+#                 if "429" in str(e) and attempt < 2:
+#                     print(f"⏳ Rate limited — waiting 65 seconds...")
+#                     time.sleep(65)
+#                 else:
+#                     raise e
         
-        processed = min(i + batch_size, len(chunks))
-        print(f"✅ Processed {processed}/{len(chunks)} chunks...")
+#         processed = min(i + batch_size, len(chunks))
+#         print(f"✅ Processed {processed}/{len(chunks)} chunks...")
         
-        # Wait 65 seconds between every batch
-        if i + batch_size < len(chunks):
-            time.sleep(65)
+#         # Wait 65 seconds between every batch
+#         if i + batch_size < len(chunks):
+#             time.sleep(65)
     
-    print(f"\n🎉 Vector store created!")
-    return vector_store
+#     print(f"\n🎉 Vector store created!")
+#     return vector_store
     
 
 
 
-def load_vector_store():
-    """
-    Load existing vector store instead of recreating it
-    """
-    embedding_model = GoogleGenerativeAIEmbeddings(
-        model="models/gemini-embedding-001",
-        google_api_key=os.getenv("GOOGLE_API_KEY")
-    )
+# def load_vector_store():
+#     """
+#     Load existing vector store instead of recreating it
+#     """
+#     # embedding_model = GoogleGenerativeAIEmbeddings(
+#     #     model="models/gemini-embedding-001",
+#     #     google_api_key=os.getenv("GOOGLE_API_KEY")
+#     # )
     
-    vector_store = Chroma(
-        persist_directory=".chroma",
-        embedding_function=embedding_model
-    )
+#     embedding_model = HuggingFaceEmbeddings(
+#         model_name="all-MiniLM-L6-v2"
+#     )
     
-    print(f"✅ Loaded existing vector store")
-    return vector_store
+#     vector_store = Chroma(
+#         persist_directory=".chroma",
+#         embedding_function=embedding_model
+#     )
+    
+#     print(f"✅ Loaded existing vector store")
+#     return vector_store
 
 
 if __name__ == "__main__":
